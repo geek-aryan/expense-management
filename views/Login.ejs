@@ -1,0 +1,35 @@
+<%- include('partials/header') %> 
+
+<div class="container" >
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mt-5">Welcome To Login Page</h1>
+        </div>
+    </div>
+    <div class="row mycontainer">
+        <div class="col">
+            <form action="/expense">
+                <div class="mb-3 mt-3">
+                    <label for="formGroupExampleInput" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">Password</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Your Password">
+                  </div>
+                  <div class="mb-3">
+                    <button class="btn btn-outline-dark form-control">Login</button>
+                  </div>
+                  <div class="mb-3">
+                    <button type="button" class="btn btn-danger form-control">Login With Google</button>
+                  </div>
+                  <div class="mb-3">
+                    <p>New User ? <a href="/register">Click Here</a></p>
+                  </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+<%- include('partials/footer') %> 

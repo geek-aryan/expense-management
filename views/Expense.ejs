@@ -1,0 +1,74 @@
+<%- include('partials/header') %> 
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Expense Management</a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li> -->
+        <!-- </ul> -->
+        <div class="d-flex">
+            <a href="/records" class="me-2 btn btn-outline-light">View All Records</a>
+            <a href="" class="btn btn-danger">Log Out</a>
+        </div>
+        
+        
+        
+        <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+      <!-- </div> -->
+    </div>
+  </nav>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mt-5">ADD EXPENSES</h1>
+        </div>
+    </div>
+    <div class="row mycontainer">
+        <div class="col">
+            <form action="/expense" method="post">
+                <div class="mb-3 mt-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
+                  </div>
+                <div class="mb-3 mt-3">
+                    <label for="selectCat" class="form-label">Please Select Category</label>
+                    <select name="category" id="" class="form-control">
+                        <option value="Vegitables">Vegitables</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                  </div>
+                <div class="mb-3 mt-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" name="price" class="form-control" id="price" placeholder="Enter Price" required>
+                </div>
+                <div class="mb-3 mt-3">
+                    <button class="form-control btn btn-dark">Add To Records</button>
+                </div>
+                <div class="mb-3 mt-3">
+                    <a href="/records" class="form-control btn btn-outline-dark">View All Records</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>
+
+<%- include('partials/footer') %> 

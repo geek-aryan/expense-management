@@ -1,0 +1,108 @@
+<%- include('partials/header') %> 
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Expense Management</a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li> -->
+        <!-- </ul> -->
+        <div class="d-flex">
+            <a href="/expense" class="me-2 btn btn-outline-light">Back</a>
+            <a href="" class="btn btn-danger">Log Out</a>
+        </div>
+        
+        
+        
+        <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+      <!-- </div> -->
+    </div>
+  </nav>
+<div class="container">
+    <h1 class="text-center mt-5">All Expenses Records</h1>
+    <hr>
+    <table class="table table-hover">
+        <tr>
+            <th>S.No</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+        <% allRecords.forEach((r,i)=>{ %>
+            <tr>
+                <td><%= i+1 %></td>
+                <td><%= r.category %></td>
+                <td><%= r.name %></td>
+                <td><%= new Date(r.date).toLocaleDateString('en-GB')%></td>
+                <td>Rs. <%= r.price %></td>
+                <% if(r.status){ %>
+                    <td>
+                        <input type="hidden" id="recId" name="recId" value="<%= r._id %>">
+                        <button class="btn btn-danger pending-btn">Pending</button>
+                    </td>
+                <% }else{ %>
+                    <td><button class="btn btn-success">Done</button></td>
+                <% } %> 
+                
+            </tr>
+        <% }) %>
+        <!-- <tr>
+            <td>1</td>
+            <td>Vegitables</td>
+            <td>Aryan</td>
+            <td>31/07/2022</td>
+            <td>Rs.100</td>
+            <td><button class="btn btn-danger pending-btn">Pending</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Vegitables</td>
+            <td>Amit</td>
+            <td>12/07/2022</td>
+            <td>Rs.200</td>
+            <td><button class="btn btn-success">Done</button></td>
+        </tr> -->
+      </table>
+</div>
+<script>
+    document.querySelector('.pending-btn').addEventListener('click',(e)=>{
+        if(e.target.getAttribute('class')==='btn btn-danger pending-btn'){
+            const result = confirm('Are you want to done that ?')
+            if(result)
+            {
+                console.log(e.target.previousElementSibling.value)                
+                fetch('/record/'+e.target.previousElementSibling.value,{
+                    method: 'PATCH',
+                    body: JSON.stringify({
+                        id: e.target.previousElementSibling.value,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                }).then((result)=>{
+                    console.log(result.json())
+                    e.target.innerHTML='Done'
+                    console.log(e.target.setAttribute('class','btn btn-success'))
+                })  
+            }
+        }
+    })
+    
+</script>
+<%- include('partials/footer') %> 

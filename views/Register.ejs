@@ -1,0 +1,43 @@
+<%- include('partials/header') %> 
+
+<div class="container" >
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mt-5">Welcome To Register Page</h1>
+        </div>
+    </div>
+    <div class="row mycontainer">
+        <div class="col">
+            <form action="">
+                <div class="mb-3 mt-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Your Name" required>
+                  </div>
+                <div class="mb-3 mt-3">
+                    <label for="emailid" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailid" placeholder="Enter Your Email" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="pwd" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter Your Password" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="cpwd" class="form-label">Confirm Password</label>
+                    <input type="text" class="form-control" id="cpwd" placeholder="Enter Your Confirm Password" required>
+                  </div>
+                  <div class="mb-3">
+                    <button class="btn btn-outline-dark form-control">Login</button>
+                  </div>
+                  <div class="mb-3">
+                    <button type="button" class="btn btn-danger form-control">Login With Google</button>
+                  </div>
+                  <div class="mb-3">
+                    <p>Already Register ? <a href="/login">Click Here</a></p>
+                  </div>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
+<%- include('partials/footer') %> 
