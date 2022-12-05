@@ -2,11 +2,11 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">Expense Management</a>
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <!-- <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
@@ -16,7 +16,7 @@
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
           </li> -->
-        <!-- </ul> -->
+        </ul>
         <div class="d-flex">
             <a href="/records" class="me-2 btn btn-outline-light">View All Records</a>
             <a href="" class="btn btn-danger">Log Out</a>
@@ -28,7 +28,7 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form> -->
-      <!-- </div> -->
+      </div>
     </div>
   </nav>
 <div class="container">
@@ -40,10 +40,20 @@
     <div class="row mycontainer">
         <div class="col">
             <form action="/expense" method="post">
-                <div class="mb-3 mt-3">
+                <!-- <div class="mb-3 mt-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required>
-                  </div>
+                  </div> -->
+                <div class="mb-3 mt-3">
+                    <label for="selectName" class="form-label">Please Select Your Name</label>
+                    <select name="name" id="selectName" class="form-control">
+                        <option value="Anuj">Anuj</option>
+                        <option value="Amit">Amit</option>
+                        <option value="Aryan">Aryan</option>
+                        <option value="Yash">Yash</option>
+                        <option value="Yogesh">Yogesh</option>
+                    </select>
+                </div>
                 <div class="mb-3 mt-3">
                     <label for="selectCat" class="form-label">Please Select Category</label>
                     <select name="category" id="" class="form-control">
