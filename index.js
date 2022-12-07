@@ -70,13 +70,16 @@ app.post('/expense', (req, res) => {
 
 app.patch('/record/:recordId',(req,res)=>{
     Record.updateOne({_id:req.params.recordId}, {$set : {status : false}},(err,foundRecord)=>{
-        if (!err)
+        if (!err){
+            // console.log(foundRecord)
             res.send(JSON.stringify(foundRecord))
+        }
+           
         else
             res.send('No found')  
     })
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening on port ${port}`)
 })

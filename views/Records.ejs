@@ -128,12 +128,13 @@
     // document.querySelector('#currentMonthTotalPrice').innerText='Rs. '+currentMonthTotal
 
 
-    document.querySelector('.pending-btn').addEventListener('click',(e)=>{
+    document.querySelectorAll('.pending-btn').forEach((btn)=>{
+      btn.addEventListener('click',(e)=>{
+        // console.log('clicked on pending')
         if(e.target.getAttribute('class')==='btn btn-danger pending-btn'){
             const result = confirm('Are you want to done that ?')
             if(result)
-            {
-                console.log(e.target.previousElementSibling.value)                
+            {               
                 fetch('/record/'+e.target.previousElementSibling.value,{
                     method: 'PATCH',
                     body: JSON.stringify({
@@ -142,13 +143,18 @@
                     headers: {
                         'Content-type': 'application/json; charset=UTF-8',
                     },
-                }).then((result)=>{
-                    console.log(result.json())
+                }).then((response)=>{
+                    return response.json()
+                }).then(result=>{
+                  console.log(result)
+                  if(result.acknowledged){
                     e.target.innerHTML='Done'
-                    console.log(e.target.setAttribute('class','btn btn-success'))
+                    e.target.setAttribute('class','btn btn-success')
+                  }
                 })  
             }
         }
+    })
     })
     
 </script>
