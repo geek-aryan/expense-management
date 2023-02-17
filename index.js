@@ -44,6 +44,16 @@ app.get('/records', (req, res) => {
     })
   
 })
+app.get('/records/:name', (req, res) => {
+    Record.find({name:req.params.name,status:true},(err,rec)=>{
+        if(err)
+            res.send('Some error <a href="/expense">Click Here<a> To go back')
+        else{
+            res.render('Records',{title:'All Expenses Records Of '+req.params.name, allRecords : rec})
+        }
+    })
+  
+})
 
 app.post('/expense', (req, res) => {
     const name = req.body.name
