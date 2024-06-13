@@ -94,12 +94,14 @@
 <script>
     let allPrice=document.querySelectorAll('.price span')
     let currentMonth = new Date().getMonth()+1
+    let currentYear = new Date().getFullYear()
     let total = 0
     let currentMonthTotal=0
     allPrice.forEach(element => {
       total += Number(element.innerText)
       let recMonth = Number(element.parentElement.previousElementSibling.innerText.substring(3,5))
-      if(recMonth===currentMonth)
+      let recYear = Number(element.parentElement.previousElementSibling.innerText.substring(6))
+      if(recMonth===currentMonth && recYear === currentYear)
       {
         currentMonthTotal+=Number(element.innerText)
       }
